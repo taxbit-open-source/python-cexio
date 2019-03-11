@@ -3,13 +3,15 @@
 from distutils.core import setup
 
 setup(
-    name='cexio',
+    name='taxbit-cexio-python',
     version='0.1.4',
-    packages=['cexio'],
+    packages=['taxbit_cexio'],
     description='Python wrapper for CEX.IO',
-    url='https://github.com/fasetto/python-cexio',
+    url='https://github.com/taxbit-open-source/python-cexio/',
     author='SERKAN BIRCAN',
     author_email='serkan@siniradam.net',
+    maintainer='Chris Gunnels',
+    maintainer_email='chris@taxbit.com',
     license='MIT',
     classifiers=[
         'Programming Language :: Python',
