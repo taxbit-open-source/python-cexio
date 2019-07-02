@@ -27,8 +27,8 @@ class Api:
     Python wrapper for CEX.IO
     """
 
-    def __init__(self, username, api_key, api_secret):
-        self.username = username
+    def __init__(self, user_id, api_key, api_secret):
+        self.user_id = user_id
         self.api_key = api_key
         self.api_secret = api_secret
 
@@ -37,7 +37,7 @@ class Api:
         return str(int(time.time() * 1000))
 
     def __signature(self, nonce):
-        message = nonce + self.username + self.api_key
+        message = nonce + self.user_id + self.api_key
         signature = hmac.new(bytearray(self.api_secret.encode('utf-8')), message.encode('utf-8'),
                              digestmod=hashlib.sha256).hexdigest().upper()
         return signature
@@ -185,5 +185,5 @@ class Api:
         return self.api_call('archived_orders', params, market)
 
     def __post(self, url, param):
-        result = requests.post(url, data=param, headers={'User-agent': 'bot-cex.io-' + self.username}).json()
+        result = requests.post(url, data=param, headers={'User-agent': 'bot-cex.io-' + self.user_id}).json()
         return result
